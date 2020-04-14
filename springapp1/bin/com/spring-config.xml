@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- xmlns is xmlnamespace -->
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+              default-init-method="doMyStuff" default-destroy-method="doMyCleanStuff">  
+              
+               <!-- employee class object -->
+
+<!--<bean id="emp" class="com.Employee">		
+<property name="id" value="26"></property>
+<property name="ename" value="saksham"></property>
+</bean>-->
+
+<!--  
+
+<bean id="stud" class="com.student">		
+<constructor-arg name="rollNo" type="int" value="1" />
+<constructor-arg name="name" type="String" value="saksham" />
+</bean>
+       -->
+       
+<bean id="tea" class="bean.Tea" init-method="doMyStuff" destroy-method="doMyCleanStuff"></bean>
+
+<bean id="rest" class="model.Restaurant">
+<property name="hd" ref="tea"></property>
+</bean>              
+
+<bean id="sport" class="bean.Sports">
+<property name="id" value="101"></property>
+<property name="sname">
+<list>
+<value>cricket</value>
+<value>basketball</value>
+<value>football</value>
+</list>
+</property>
+</bean>              
+
+<bean id="lang" class="bean.CountryLanguage">
+<property name="language">
+<props>
+<prop key="India">hindi</prop>
+<prop key="Japan">japanese</prop>
+<prop key="English">english</prop>
+</props>
+</property>
+</bean>
+
+</beans>
+<!-- this is a spring container and it is pre-defined form -->
+<!-- it is responsible for creating object that holds in memory also -->
+<!-- it is like awt,web containers -->
+<!-- it contains class names and comes with same framework -->
+<!-- used for also injecting into onather object -->
+
+<!-- container is of 2 type-xml andd beanjava classes -->
+<!-- help to maintain sprong lifecycle from initilaization to destruction -->
